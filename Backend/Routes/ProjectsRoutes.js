@@ -5,9 +5,12 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
 	const id = req.query._id;
-	let querry = { userId: req.user.userId };
+	let querry = {};
 	if (id) {
 		querry._id = id;
+	}
+	if (req.user.userID) {
+		querry.userId = req.user.userID;
 	}
 	try {
 		const data = await Projectsmodels.find(querry);

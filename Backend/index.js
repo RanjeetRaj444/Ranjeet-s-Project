@@ -14,7 +14,7 @@ app.use("/projects", router);
 app.use("/uploads", express.static("uploads"));
 app.use("/users", userRouter);
 
-app.listen(process.env.PORT||8008, async () => {
+app.listen(process.env.PORT || 8008, async () => {
 	try {
 		await mongoose.connect(process.env.DATA_BASE_URL);
 		console.log("database connected");
