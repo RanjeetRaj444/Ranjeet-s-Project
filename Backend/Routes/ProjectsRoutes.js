@@ -9,9 +9,9 @@ router.get("/", async (req, res) => {
 	if (id) {
 		querry._id = id;
 	}
-	if (req.user.userID) {
-		querry.userId = req.user.userID;
-	}
+	// if(req.user.userID){
+	// 	querry.userId = req.user.userID;
+	// }
 	try {
 		const data = await Projectsmodels.find(querry);
 		res.status(200).send({ data: data });
