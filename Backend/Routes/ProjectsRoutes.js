@@ -5,11 +5,10 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
 	const id = req.query._id;
-	let querry;
+	let querry = { userId: req.user.userId };
 	if (id) {
-		querry = { _id: id };
+		querry._id = id;
 	}
-	// console.log(id);
 	try {
 		const data = await Projectsmodels.find(querry);
 		res.status(200).send({ data: data });

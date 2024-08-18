@@ -8,6 +8,11 @@ const schema = new mongoose.Schema({
 	projectType: { type: String, require: true },
 	des: { type: String, require: true },
 	techStach: { type: Array },
+	userId: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: "users",
+		required: true,
+	},
 });
 
 const Projectsmodels = mongoose.model("Projects", schema);
